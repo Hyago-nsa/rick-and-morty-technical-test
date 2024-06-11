@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private appService: AppService) {}
   invalidLogin: boolean = false;
 
   headerTitle = "Login"
@@ -28,6 +29,7 @@ export class LoginComponent {
       this.invalidLogin = true
       return
     }
-    this.router.navigate(['/home',{ username: this.username }]); 
+    this.appService.setUsername(this.username)
+    this.router.navigate(['/home']); 
   }
 }

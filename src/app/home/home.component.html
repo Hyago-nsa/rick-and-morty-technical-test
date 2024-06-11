@@ -1,26 +1,10 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-4 mb-3" *ngFor="let card of cards" (click)="redirectToPage(card.route)">
             <div class="card text-center">
-                <img [src]="characterImageURL" class="card-img" alt="Character Image">
-                <div class="card-body d-flex ">
-                    <h5 class="card-title  position-absolute">Characteres</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
-            <div class="card text-center">
-                <img [src]="locationImageURL" class="card-img" alt="Location Image">
-                <div class="card-body d-flex ">
-                    <h5 class="card-title position-absolute">Locations</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
-            <div class="card text-center ">
-                <img [src]="episodeImageURL" class="card-img" alt="Episode Image">
+                <img [src]="card.imageURL" class="card-img" [alt]="card.altText">
                 <div class="card-body d-flex">
-                    <h5 class="card-title position-absolute">Episodes</h5>
+                    <h5 class="card-title position-absolute">{{ card.title }}</h5>
                 </div>
             </div>
         </div>

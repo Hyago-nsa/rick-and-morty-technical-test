@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-location',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './location.component.css'
 })
 export class LocationComponent {
+  username: string;
 
+  constructor(private appService: AppService) {
+    this.username = this.appService.getUsername();
+  }
 }

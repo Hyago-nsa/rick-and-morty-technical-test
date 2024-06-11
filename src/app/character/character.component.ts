@@ -10,14 +10,13 @@ import { AppService } from '../app.service';
 export class CharacterComponent {
   username: string;
 
-  constructor(private route: ActivatedRoute,private appService: AppService) {}
-  
+  constructor(private route: ActivatedRoute,private appService: AppService) {
+    this.username = this.appService.getUsername();
+  }
+
+
+
   ngOnInit() {
-    this.route.params.subscribe(params => {
-    this.username = params['username'];
-    });
-  this.route.params.subscribe(params => {
-    this.username = params['username'];
-    })
+ 
   }
 }
