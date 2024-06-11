@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,8 +10,13 @@ export class AppService {
 
   private apiUrl = 'https://rickandmortyapi.com/api';
   private username: string | null = null;
+  private usernameImage: string
+  
+  constructor(private http: HttpClient,private router: Router) { }
 
-  constructor(private http: HttpClient) { }
+  redirectToPage(page: string): void {
+    this.router.navigate([page]);
+  }
 
   setUsername(username: string): void {
     this.username = username;
@@ -18,6 +24,14 @@ export class AppService {
 
   getUsername(): string | null {
     return this.username;
+  }
+
+  setUserImage(usernameImage: string): void {
+    this.usernameImage = usernameImage;
+  }
+
+  getUserImage(): string | null {
+    return this.usernameImage
   }
 
   getCharacters(): Observable<any> {

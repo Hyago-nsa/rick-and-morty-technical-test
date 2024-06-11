@@ -11,6 +11,8 @@ import { LocationComponent } from './location/location.component';
 import { EpisodeComponent } from './episode/episode.component';
 import { DetailComponent } from './detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
+import { CharacterCardComponent } from './character-card/character-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     CharacterComponent,
     LocationComponent,
     EpisodeComponent,
-    DetailComponent
+    DetailComponent,
+    HeaderComponent,
+    CharacterCardComponent
   ],
   imports: [
     BrowserModule,

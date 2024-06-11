@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 
 interface Card {
@@ -18,11 +17,10 @@ export class HomeComponent {
   cards: Card[] = [];
 
   constructor(
-    private router: Router,
     private appService: AppService
   ) {}
 
-  private getRandomIndex(max: number, exclude: Set<number>): number {
+  private getRandomUniqueIndex(max: number, exclude: Set<number>): number {
     let randomIndex = Math.floor(Math.random() * max);
     while (exclude.has(randomIndex)) {
       randomIndex = Math.floor(Math.random() * max);
@@ -33,25 +31,30 @@ export class HomeComponent {
   private setRandomImageURLs(results: any[]): void {
     const numResults = results.length;
     const excludeIndexes = new Set<number>();
-
+  
     const cardTypes = [
       { altText: 'Character Image', title: 'Characters', route: '/character' },
       { altText: 'Location Image', title: 'Locations', route: '/location' },
       { altText: 'Episode Image', title: 'Episodes', route: '/episode' }
     ];
-
-    for (let i = 0; i < 3; i++) {
-      const randomIndex = this.getRandomIndex(numResults, excludeIndexes);
+  
+    for (const cardType of cardTypes) {
+      const randomIndex = this.getRandomUniqueIndex(numResults, excludeIndexes);
       const { image } = results[randomIndex];
-      const { altText, title, route } = cardTypes[i];
-      
-      this.cards.push({ imageURL: image, altText, title, route });
+      this.cards.push({ imageURL: image, ...cardType });
       excludeIndexes.add(randomIndex);
     }
+  
+    if (!this.appService.getUserImage()) {
+      const randomIndex = this.getRandomUniqueIndex(numResults, excludeIndexes);
+      const { image } = results[randomIndex];
+      this.appService.setUserImage(image);
+    }
   }
+  
 
   redirectToPage(page: string): void {
-    this.router.navigate([page]);
+    this.appService.redirectToPage(page)
   }
 
   ngOnInit(): void {

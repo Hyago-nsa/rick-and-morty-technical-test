@@ -5,18 +5,27 @@ import { AppService } from '../app.service';
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
-  styleUrl: './character.component.css'
+  styleUrls: ['./character.component.css']
 })
 export class CharacterComponent {
   username: string;
+  characters: any[] = [];
+  filteredCharacters: any[] = []; 
 
-  constructor(private route: ActivatedRoute,private appService: AppService) {
+  constructor(private route: ActivatedRoute, private appService: AppService) {
     this.username = this.appService.getUsername();
   }
 
-
-
   ngOnInit() {
- 
+    this.appService.getCharacters().subscribe(data => {
+      this.characters = data.results;
+      this.filteredCharacters = this.characters; 
+    });
+  }
+
+  onSearchValueChanged(searchTerm: string): void {
+    this.filteredCharacters = this.characters.filter(character =>
+      character.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   }
 }

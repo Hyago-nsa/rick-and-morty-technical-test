@@ -16,6 +16,7 @@
 
 .card{
     transition: 0.25s ease;
+    padding: 10px
 }
 
 .card:hover{

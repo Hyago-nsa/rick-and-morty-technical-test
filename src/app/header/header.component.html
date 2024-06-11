@@ -1,0 +1,23 @@
+<div class="Master-header py-3">
+    <img class="Icon ml-2" [src]="hamburger" (click)="toggleMenu()">
+    <div class="container d-flex justify-content-between align-items-center">
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterListings()" class="form-control"
+            placeholder="Search...">
+    </div>
+    <div class="Container-User">
+        <img class="userImage mr-2" [src]="userImage">
+        <h5 class="text-white mb-0">{{username || "Guest"}}</h5>
+    </div>
+</div>
+
+<div class="menu-lateral" [class.show]="menuOpen">
+    <div class="Container-menu-lateral">
+        <li class="Element-menu-lateral" (click)="redirectToPage('/home')">HOME</li>
+        <li class="Element-menu-lateral" (click)="redirectToPage('/character')">CHARACTERS</li>
+        <li class="Element-menu-lateral" (click)="redirectToPage('/location')">LOCATIONS</li>
+        <li class="Element-menu-lateral" (click)="redirectToPage('/episode')">EPISODES</li>
+        <li class="Element-menu-lateral" (click)="redirectToPage('/login')">LOGOUT</li>
+    </div>
+    
+
+</div>
