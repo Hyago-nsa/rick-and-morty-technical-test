@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (click)="showCharacterDetails(character)">
     <img class="card-img-top" [src]="character.image" alt="Character Image">
     <div class="card-body">
         <h5 class="card-title"> #{{character.id}} {{ character.name }}</h5>

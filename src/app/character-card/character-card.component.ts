@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class CharacterCardComponent {
   @Input() character: any;
+
+  showCharacterDetails(character: any) {
+    console.log(character);
+  }
 }

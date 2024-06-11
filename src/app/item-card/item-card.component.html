@@ -1,5 +1,5 @@
   <div class="card">
-    <div class="card-body">
+    <div class="card-body" (click)="showItemDetails(item)">
         <h1 class="card-id">#{{ item.id }}</h1>
         <h5 class="card-title"> {{ item.name }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ item.type }}</h6>
