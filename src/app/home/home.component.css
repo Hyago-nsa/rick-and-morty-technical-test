@@ -12,6 +12,7 @@
     object-fit: cover;
     height: 100%;
     transition: 0.25s ease;
+    border-radius: 5px;
 }
 
 .card-img:hover{
