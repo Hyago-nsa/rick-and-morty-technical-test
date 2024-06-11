@@ -8,12 +8,10 @@ import { AppService } from '../app.service';
   styleUrls: ['./character.component.css']
 })
 export class CharacterComponent {
-  username: string;
   characters: any[] = [];
   filteredCharacters: any[] = []; 
 
   constructor(private route: ActivatedRoute, private appService: AppService) {
-    this.username = this.appService.getUsername();
   }
 
   ngOnInit() {

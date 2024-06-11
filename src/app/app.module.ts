@@ -13,6 +13,7 @@ import { DetailComponent } from './detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { CharacterCardComponent } from './character-card/character-card.component';
+import { ItemCardComponent } from './item-card/item-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CharacterCardComponent } from './character-card/character-card.componen
     EpisodeComponent,
     DetailComponent,
     HeaderComponent,
-    CharacterCardComponent
+    CharacterCardComponent,
+    ItemCardComponent
   ],
   imports: [
     BrowserModule,

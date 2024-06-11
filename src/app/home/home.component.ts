@@ -51,7 +51,6 @@ export class HomeComponent {
       this.appService.setUserImage(image);
     }
   }
-  
 
   redirectToPage(page: string): void {
     this.appService.redirectToPage(page)
