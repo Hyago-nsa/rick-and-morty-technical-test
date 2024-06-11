@@ -1,3 +1,28 @@
-<p>Bem-vindo, {{ username }}!</p>
-<h1>Personagens</h1>
-<h1>Episodios</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+            <div class="card text-center">
+                <img [src]="characterImageURL" class="card-img" alt="Character Image">
+                <div class="card-body d-flex ">
+                    <h5 class="card-title  position-absolute">Characteres</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card text-center">
+                <img [src]="locationImageURL" class="card-img" alt="Location Image">
+                <div class="card-body d-flex ">
+                    <h5 class="card-title position-absolute">Locations</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card text-center ">
+                <img [src]="episodeImageURL" class="card-img" alt="Episode Image">
+                <div class="card-body d-flex">
+                    <h5 class="card-title position-absolute">Episodes</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

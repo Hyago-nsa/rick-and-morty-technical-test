@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +8,22 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  username: string;
+ 
+  characterImageURL: any[];
+  locationImageURL: any[];
+  episodeImageURL: any[];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,private appService: AppService) {}
+
+  randomNumber(num:number){
+    return Math.floor(Math.random() * num)
+  }
 
   ngOnInit() {
-    // Recupera os parâmetros de rota
-    this.route.params.subscribe(params => {
-      this.username = params['username'];
-    });
+    this.appService.getCharacters().subscribe(data => {
+      this.characterImageURL = data.results[this.randomNumber(data.results.length)].image
+      this.locationImageURL = data.results[this.randomNumber(data.results.length)].image
+      this.episodeImageURL = data.results[this.randomNumber(data.results.length)].image
+    })
   }
 }

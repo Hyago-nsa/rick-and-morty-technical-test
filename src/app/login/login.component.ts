@@ -8,15 +8,26 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   constructor(private router: Router) {}
+  invalidLogin: boolean = false;
 
+  headerTitle = "Login"
   username: string = '';
   password: string = '';
 
+  validationLogin(username: string,password: any): boolean{
+    const isUsernameEmpty = username.trim() === '';
+    const isPasswordEmpty = password.trim() === '';
+
+  return !(isUsernameEmpty || isPasswordEmpty);
+  }
+
   login() {
-    // Aqui você pode adicionar a lógica de autenticação
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-    this.username.trim() === '' ? this.username = 'Guest' : this.username
-    this.router.navigate(['/home',{ username: this.username }]);
+    
+    if(!this.validationLogin(this.username,this.password)){
+      this.headerTitle = "Invalid username or password"
+      this.invalidLogin = true
+      return
+    }
+    this.router.navigate(['/home',{ username: this.username }]); 
   }
 }
