@@ -5,7 +5,7 @@
     background-color: white;
     display: flex;
     align-items: center;
-    padding: 5px 20px;
+    padding: 5px 50px;
 }
 
 .container{
@@ -32,14 +32,14 @@
 }
 
 .userImage{
-    width: 36px;
-    height: 36px;
+    width: 46px;
+    height: 46px;
     border-radius: 100%;
 }
 
 .Icon{
-    width: 36px;
-    height: 36px;
+    width: 46px;
+    height: 46px;
 }
 
 .Icon:hover{
