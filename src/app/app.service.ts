@@ -39,6 +39,22 @@ export class AppService {
     return this.http.get(`${this.apiUrl}/character`);
   }
 
+  getCharactersNames(characterUrls: string[]): Observable<string[]> {
+    const observables: Observable<string>[] = [];
+    for (const characterUrl of characterUrls) {
+      observables.push(
+        this.http.get<any>(characterUrl).pipe(
+          map(response => response.name), 
+          catchError(error => {
+            console.error('Error fetching character:', error);
+            return [];
+          })
+        )
+      );
+    }
+    return forkJoin(observables);
+  }
+
   getLocations(): Observable<any> {
     return this.http.get(`${this.apiUrl}/location`);
   }
@@ -48,7 +64,7 @@ export class AppService {
     for (const locateUrl of locateUrls) {
       observables.push(
         this.http.get<any>(locateUrl).pipe(
-          map(response => response.name), // Assumindo que o nome do residente está em response.name
+          map(response => response.name), 
           catchError(error => {
             console.error('Error fetching location:', error);
             return [];

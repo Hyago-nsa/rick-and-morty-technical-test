@@ -1,1 +1,13 @@
-<p>episode-detail works!</p>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{ episode?.name }}</h2>
+            <p class="card-text"><strong>Air Date:</strong> {{ episode?.air_date }}</p>
+            <p class="card-text"><strong>Episode:</strong> {{ episode?.episode }}</p>
+            <h3 class="card-title">Characters:</h3>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let character of characters" >{{ character }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

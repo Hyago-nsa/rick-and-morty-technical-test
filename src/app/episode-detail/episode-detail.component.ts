@@ -2,15 +2,16 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppService } from '../app.service';
 import { Subscription, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-episode-detail',
   templateUrl: './episode-detail.component.html',
-  styleUrl: './episode-detail.component.css'
+  styleUrls: ['./episode-detail.component.css']
 })
 export class EpisodeDetailComponent implements OnInit, OnDestroy {
   episode: any;
+  characters: string[] = [];
   private subscription: Subscription;
 
   constructor(private route: ActivatedRoute, private appService: AppService) {}
@@ -22,14 +23,17 @@ export class EpisodeDetailComponent implements OnInit, OnDestroy {
   fetchEpisode() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.subscription = this.appService.getEpisodes().pipe(
-      map(data => data.results.find(epi => epi.id === id)),
+      switchMap(data => {
+        const episode = data.results.find(epi => epi.id === id);
+        this.episode = episode;
+        return this.appService.getCharactersNames(episode.characters);
+      }),
       catchError(error => {
         console.error('Error fetching episode:', error);
         return throwError(error);
       })
-    ).subscribe(episode => {
-      this.episode = episode;
-      console.log(this.episode);
+    ).subscribe(characters => {
+      this.characters = characters;
     });
   }
 
