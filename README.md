@@ -16,6 +16,8 @@ Para utilizar o Bootstrap em seu projeto Angular, você precisa instalá-lo via 
 <h4>npm install bootstrap</h4>
 
 <h3>6. Execução do Projeto</h3>
-Por fim, para executar o projeto, navegue até o diretório do projeto no terminal e execute o seguinte comando:
+Para executar o projeto, navegue até o diretório do projeto no terminal e execute o seguinte comando:
 
 <h4>ng serve</h4>
+
+Por fim, acesse : http://localhost:4200 em um navegador para visualizar o projeto
