@@ -1,1 +1,13 @@
-<p>location-detail works!</p>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{ location?.name }}</h2>
+            <p class="card-text"><strong>Type:</strong> {{ location?.type }}</p>
+            <p class="card-text"><strong>Dimension:</strong> {{ location?.dimension }}</p>
+            <h3 class="card-title">Residents:</h3>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let resident of residents" >{{ resident }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

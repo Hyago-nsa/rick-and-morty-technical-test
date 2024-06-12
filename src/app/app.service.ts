@@ -43,6 +43,22 @@ export class AppService {
     return this.http.get(`${this.apiUrl}/location`);
   }
 
+  getLocationsNames(locateUrls: string[]): Observable<string[]> {
+    const observables: Observable<string>[] = [];
+    for (const locateUrl of locateUrls) {
+      observables.push(
+        this.http.get<any>(locateUrl).pipe(
+          map(response => response.name), // Assumindo que o nome do residente está em response.name
+          catchError(error => {
+            console.error('Error fetching location:', error);
+            return [];
+          })
+        )
+      );
+    }
+    return forkJoin(observables);
+  }
+
   getEpisodes(): Observable<any> {
     return this.http.get(`${this.apiUrl}/episode`);
   }

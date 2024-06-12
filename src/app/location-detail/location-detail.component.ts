@@ -2,7 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppService } from '../app.service';
 import { Subscription, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -12,6 +12,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class LocationDetailComponent implements OnInit, OnDestroy {
   location: any;
+  residents: string[] = [];
   private subscription: Subscription;
 
   constructor(private route: ActivatedRoute, private appService: AppService) {}
@@ -23,16 +24,20 @@ export class LocationDetailComponent implements OnInit, OnDestroy {
   fetchLocation() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.subscription = this.appService.getLocations().pipe(
-      map(data => data.results.find(loc => loc.id === id)),
+      switchMap(data => {
+        const location = data.results.find(loc => loc.id === id);
+        this.location = location;
+        return this.appService.getLocationsNames(location.residents);
+      }),
       catchError(error => {
         console.error('Error fetching location:', error);
         return throwError(error);
       })
-    ).subscribe(location => {
-      this.location = location;
-      console.log(this.location);
+    ).subscribe(residents => {
+      this.residents = residents;
     });
   }
+  
 
   ngOnDestroy() {
     if (this.subscription) {
