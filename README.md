@@ -12,3 +12,8 @@ O Angular CLI é uma ferramenta de linha de comando que facilita a criação e g
 
 <h3>2. Instalação do Bootstrap</h3>
 Para utilizar o Bootstrap em seu projeto Angular, você precisa instalá-lo via npm. No terminal, navegue até o diretório do projeto e execute o seguinte comando:
+
+<h4>npm install bootstrap</h4>
+
+<h3>6. Execução do Projeto</h3>
+Por fim, para executar o projeto, navegue até o diretório do projeto no terminal e execute o seguinte comando:
