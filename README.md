@@ -19,12 +19,12 @@ Caso deseje clonar o repositório do projeto do GitHub, use o seguinte comando:
 
 Caso tenha acesso ao arquivo do projeto, abra-o.
 
-<h3>2. Instalação das dependências</h3>
+<h3>3. Instalação das dependências</h3>
 Para utilizar as dependências requiridas pelo projeto, você precisa instalá-las via npm. No terminal, navegue até o diretório do projeto e execute o seguinte comando:
 
 <h4>npm install</h4>
 
-<h3>3. Execução do Projeto</h3>
+<h3>4. Execução do Projeto</h3>
 Para executar o projeto, navegue até o diretório do projeto no terminal e execute o seguinte comando:
 
 <h4>ng serve</h4>
