@@ -32,4 +32,8 @@ export class LoginComponent {
     this.appService.setUsername(this.username)
     this.router.navigate(['/home']); 
   }
+
+  ngOnInit() {
+    this.appService.setUsername("")
+  }
 }
