@@ -5,6 +5,9 @@ import { HomeComponent } from './home/home.component';
 import { CharacterComponent } from './character/character.component';
 import { LocationComponent } from './location/location.component';
 import { EpisodeComponent } from './episode/episode.component';
+import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { LocationDetailComponent } from './location-detail/location-detail.component';
+import { EpisodeDetailComponent } from './episode-detail/episode-detail.component';
 
 // import { AppComponent } from "./app.component";
 
@@ -13,9 +16,11 @@ const routes: Routes = [
   {path: "home", component: HomeComponent },
   {path: "login", component: LoginComponent },
   {path: "character", component: CharacterComponent},
+  {path: 'character/:id', component: CharacterDetailComponent },
   {path: "location", component: LocationComponent},
-  {path: "episode", component: EpisodeComponent}
-
+  {path: "location/:id", component: LocationDetailComponent},
+  {path: "episode", component: EpisodeComponent},
+  {path: "episode/:id", component: EpisodeDetailComponent}
 ];
 
 @NgModule({

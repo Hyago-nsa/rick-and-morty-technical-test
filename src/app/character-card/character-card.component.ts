@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,9 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './character-card.component.css'
 })
 export class CharacterCardComponent {
+  constructor(private router: Router) {}
+
   @Input() character: any;
 
   showCharacterDetails(character: any) {
-    console.log(character);
+    this.router.navigate(['/character', character.id]);
   }
 }

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,21 @@ export class AppService {
 
   getEpisodes(): Observable<any> {
     return this.http.get(`${this.apiUrl}/episode`);
+  }
+
+  getEpisodesNames(episodeUrls: string[]): Observable<string[]> {
+    const observables: Observable<string>[] = [];
+    for (const episodeUrl of episodeUrls) {
+      observables.push(
+        this.http.get<any>(episodeUrl).pipe(
+          map(response => response.name),
+          catchError(error => {
+            console.error('Error fetching episode:', error);
+            return [];
+          })
+        )
+      );
+    }
+    return forkJoin(observables);
   }
 }

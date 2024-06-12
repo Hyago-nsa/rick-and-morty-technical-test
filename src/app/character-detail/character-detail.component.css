@@ -1,0 +1,9 @@
+li, h2 {
+    color:white
+}
+
+img{
+    margin-top: 20px;
+    border: 1px solid white;
+    border-radius: 100%;
+}

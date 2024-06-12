@@ -1,4 +1,5 @@
 import { Component, Input} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-card',
@@ -6,9 +7,16 @@ import { Component, Input} from '@angular/core';
   styleUrl: './item-card.component.css'
 })
 export class ItemCardComponent {
+  constructor(private router: Router) {}
+
   @Input() item: any;
 
   showItemDetails(item: any) {
-    console.log(item);
+    if(item.episode){
+      this.router.navigate(['/episode', item.id]);
+    }
+    if(item.dimension){
+      this.router.navigate(['/location', item.id]);
+    }
   }
 }

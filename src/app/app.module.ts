@@ -9,11 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { CharacterComponent } from './character/character.component';
 import { LocationComponent } from './location/location.component';
 import { EpisodeComponent } from './episode/episode.component';
-import { DetailComponent } from './detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { CharacterCardComponent } from './character-card/character-card.component';
 import { ItemCardComponent } from './item-card/item-card.component';
+import { LocationDetailComponent } from './location-detail/location-detail.component';
+import { EpisodeDetailComponent } from './episode-detail/episode-detail.component';
+import { CharacterDetailComponent } from './character-detail/character-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { ItemCardComponent } from './item-card/item-card.component';
     CharacterComponent,
     LocationComponent,
     EpisodeComponent,
-    DetailComponent,
     HeaderComponent,
     CharacterCardComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    LocationDetailComponent,
+    EpisodeDetailComponent,
+    CharacterDetailComponent
   ],
   imports: [
     BrowserModule,
