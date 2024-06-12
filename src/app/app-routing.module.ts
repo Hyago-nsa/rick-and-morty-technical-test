@@ -8,13 +8,13 @@ import { EpisodeComponent } from './episode/episode.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { LocationDetailComponent } from './location-detail/location-detail.component';
 import { EpisodeDetailComponent } from './episode-detail/episode-detail.component';
-
-// import { AppComponent } from "./app.component";
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/login", pathMatch:"full"},
-  {path: "home", component: HomeComponent },
   {path: "login", component: LoginComponent },
+  {path: "home", component: HomeComponent },
+  {path: "profile", component: ProfileComponent },
   {path: "character", component: CharacterComponent},
   {path: 'character/:id', component: CharacterDetailComponent },
   {path: "location", component: LocationComponent},

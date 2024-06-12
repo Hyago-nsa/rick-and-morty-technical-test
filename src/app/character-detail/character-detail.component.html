@@ -1,24 +1,25 @@
 <div class="container mt-4" *ngIf="character">
     <div class="row">
-      <div class="col-md-4">
-        <img src="{{ character?.image }}" alt="{{ character?.name }}" class="img-fluid" />
-      </div>
-      <div class="col-md-8">
-        <h2>{{ character?.name }}</h2>
-        <ul class="list-unstyled">
-          <li><strong>Status:</strong> {{ character?.status }}</li>
-          <li><strong>Species:</strong> {{ character?.species }}</li>
-          <li><strong>Gender:</strong> {{ character?.gender }}</li>
-          <li><strong>Origin:</strong> {{ character?.origin?.name }}</li>
-          <li><strong>Location:</strong> {{ character?.location?.name }}</li>
-          <li><strong>Episodes:</strong>
-            <ul>
-              <li *ngFor="let episode of episodes">{{ episode }}</li>
+        <div class="col-md-4 text-center">
+            <img [src]="character.image" [alt]="character.name" class="img-fluid character-img">
+        </div>
+        <div class="col-md-8">
+            <h2 class="character-name">{{ character.name }}</h2>
+            <ul class="list-unstyled character-info">
+                <li><strong>Status:</strong> {{ character.status }}</li>
+                <li><strong>Species:</strong> {{ character.species }}</li>
+                <li><strong>Gender:</strong> {{ character.gender }}</li>
+                <li><strong>Origin:</strong> {{ character.origin.name }}</li>
+                <li><strong>Location:</strong> {{ character.location.name }}</li>
+                <li><strong>Episodes:</strong>
+                    <div class="row">
+                        <div class="col-sm-4" *ngFor="let episode of episodes">
+                            <p class="episode-item">{{ episode }}</p>
+                        </div>
+                    </div>
+                </li>
+                <li><strong>Created:</strong> {{ character.created | date }}</li>
             </ul>
-          </li>
-          <li><strong>Created:</strong> {{ character?.created | date }}</li>
-        </ul>
-      </div>
+        </div>
     </div>
-  </div>
-  
+</div>

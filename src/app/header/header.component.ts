@@ -1,4 +1,3 @@
-// header.component.ts
 import { Component, Output, EventEmitter } from '@angular/core';
 import { AppService } from '../app.service';
 import { Router, NavigationEnd } from '@angular/router';

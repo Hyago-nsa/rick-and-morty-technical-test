@@ -16,6 +16,7 @@ import { ItemCardComponent } from './item-card/item-card.component';
 import { LocationDetailComponent } from './location-detail/location-detail.component';
 import { EpisodeDetailComponent } from './episode-detail/episode-detail.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
     ItemCardComponent,
     LocationDetailComponent,
     EpisodeDetailComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

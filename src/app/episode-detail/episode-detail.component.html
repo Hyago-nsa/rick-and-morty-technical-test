@@ -5,9 +5,11 @@
             <p class="card-text"><strong>Air Date:</strong> {{ episode?.air_date }}</p>
             <p class="card-text"><strong>Episode:</strong> {{ episode?.episode }}</p>
             <h3 class="card-title">Characters:</h3>
-            <ul class="list-group list-group-flush">
-                <li *ngFor="let character of characters" >{{ character }}</li>
-            </ul>
+            <div class="row">
+                <div class="col-sm-4" *ngFor="let character of characters">
+                        <p>{{ character }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

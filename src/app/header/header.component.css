@@ -20,10 +20,13 @@
 .Container-User{
     position: relative;
     align-self: right;
-
     gap: 20px;
     display: flex;
     align-items: center;
+}
+
+.Container-User:hover{
+    cursor: pointer;
 }
 
 .Container-User h5{

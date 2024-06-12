@@ -4,7 +4,7 @@
         <input type="text" [(ngModel)]="searchTerm" (input)="filterListings()" class="form-control"
             placeholder="Search...">
     </div>
-    <div class="Container-User">
+    <div class="Container-User" (click)="redirectToPage('/profile')">
         <img class="userImage mr-2" [src]="userImage">
         <h5 class="text-white mb-0">{{username || "Guest"}}</h5>
     </div>
@@ -13,7 +13,7 @@
 <div class="menu-lateral" [class.show]="menuOpen">
     <div class="Container-menu-lateral">
         <li class="Element-menu-lateral" (click)="redirectToPage('/home')">HOME</li>
-        <li class="Element-menu-lateral" (click)="redirectToPage('/home')">PROFILE</li>
+        <li class="Element-menu-lateral" (click)="redirectToPage('/profile')">PROFILE</li>
         <li class="Element-menu-lateral" (click)="redirectToPage('/character')">CHARACTERS</li>
         <li class="Element-menu-lateral" (click)="redirectToPage('/location')">LOCATIONS</li>
         <li class="Element-menu-lateral" (click)="redirectToPage('/episode')">EPISODES</li>
